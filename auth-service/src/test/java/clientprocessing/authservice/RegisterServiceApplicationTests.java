@@ -1,13 +1,13 @@
-package clientprocessing.frodservice;
+package clientprocessing.authservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class FrodServiceApplicationTests {
+class RegisterServiceApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
+	@Test
+	void contextLoads() {
+	}
 
 }

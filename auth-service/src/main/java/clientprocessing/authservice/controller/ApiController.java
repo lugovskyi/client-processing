@@ -2,14 +2,12 @@ package clientprocessing.authservice.controller;
 
 import clientprocessing.authservice.model.ClientDto;
 import clientprocessing.authservice.model.ClientResponseDto;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/client")
 public interface ApiController {
 
     @PostMapping("/register")
-    ClientResponseDto registerClient(ClientDto clientDto);
+    ClientResponseDto registerClient(@RequestBody ClientDto clientDto);
 }

@@ -1,9 +1,10 @@
 package clientprocessing.authservice.model;
 
+import lombok.Builder;
+
+@Builder
 public record ClientResponseDto(
-        String id,
-        String passport,
-        String taxNumber,
+        String sid,
         String errorCode,
         String errorMessage
 ) {
