@@ -20,7 +20,7 @@ public class RabbitConfig {
 
     @Bean
     Queue queue() {
-        return new Queue(properties.queue(), false);
+        return new Queue(properties.queue(), true, false, false);
     }
 
     @Bean
