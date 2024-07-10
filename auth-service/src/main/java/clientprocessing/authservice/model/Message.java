@@ -1,11 +1,9 @@
 package clientprocessing.authservice.model;
 
 import lombok.Builder;
-import lombok.Data;
 
-@Data
 @Builder
-public class Message {
-    String sid;
-    ClientDto clientDto;
+public record Message(
+        String sid,
+        ClientDto client) {
 }
