@@ -1,16 +1,12 @@
 version: '3.8'
 
 services:
-  auth-service:
-    build: ./auth-service
-    ports:
-      - "8080:8080"
   rabbitmq:
-    image: rabbitmq:latest
+    image: rabbitmq:3.13-management
     container_name: rabbitmq
     environment:
-      - 'RABBITMQ_DEFAULT_PASS=testuser'
-      - 'RABBITMQ_DEFAULT_USER=testuser'
+      - 'RABBITMQ_DEFAULT_PASS=guest'
+      - 'RABBITMQ_DEFAULT_USER=guest'
     deploy:
       resources:
         limits:
@@ -23,3 +19,39 @@ services:
       interval: 10s
       timeout: 5s
       retries: 16
+  postgresql:
+    image: postgres:16
+    container_name: postgresql
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: client_api
+      TZ: UTC
+      PGTZ: UTC
+    deploy:
+      resources:
+        limits:
+          memory: 350M
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 10s
+      timeout: 5s
+      retries: 16
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8001:8080"
+  diia-service:
+    build: ./diia-service
+    ports:
+      - "8002:8080"
+  edr-service:
+    build: ./edr-service
+    ports:
+      - "8003:8080"
+  client-data-service:
+    build: ./client-data-service
+    ports:
+      - "8004:8080"
