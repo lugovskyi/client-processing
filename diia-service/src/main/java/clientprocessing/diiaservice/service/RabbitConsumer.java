@@ -35,7 +35,8 @@ public class RabbitConsumer {
         } catch (Exception e) {
             log.error("Error during message processing: {}", e.getMessage());
             checkExceptionCounter();
-            throw e;
+            log.error("sendenig to dead queue");
+            channel.basicNack(tag, false, false);
         }
     }
 

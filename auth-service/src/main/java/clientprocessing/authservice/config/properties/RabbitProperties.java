@@ -9,7 +9,9 @@ public record RabbitProperties(
         String username,
         String password,
         String exchange,
+        String deadExchange,
         String queue,
+        String deadQueue,
         String routingKey
 ) {
 }

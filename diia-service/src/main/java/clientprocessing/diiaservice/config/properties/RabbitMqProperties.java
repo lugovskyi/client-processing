@@ -11,7 +11,9 @@ public record RabbitMqProperties(
         String username,
         String password,
         String exchange,
+        String deadExchange,
         String queue,
+        String deadQueue,
         String routingKey
 ) {
 }
