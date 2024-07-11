@@ -25,4 +25,4 @@ db creating automatically but cleans after restart of client-data-service<br>
 
 test postman collection<br><br>
 
-Test collection.postman_collection.json
+[Test collection.postman_collection.json](https://github.com/lugovskyi/client-processing/blob/master/Test%20collection.postman_collection.json)
