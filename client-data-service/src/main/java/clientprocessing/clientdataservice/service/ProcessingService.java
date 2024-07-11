@@ -25,11 +25,11 @@ public class ProcessingService {
         log.info("received message: {}", message);
 
         Client client = Client.builder()
-                .taxNumber(inputClientMessage.clientDto().taxNumber())
-                .address(inputClientMessage.clientDto().address())
-                .passport(inputClientMessage.clientDto().passport())
-                .isFop(inputClientMessage.clientDto().isFop())
-                .isFraudAssigned(inputClientMessage.clientDto().isFraudAssigned())
+                .taxNumber(inputClientMessage.client().taxNumber())
+                .address(inputClientMessage.client().address())
+                .passport(inputClientMessage.client().passport())
+                .isFop(inputClientMessage.client().isFop())
+                .isFraudAssigned(inputClientMessage.client().isFraudAssigned())
                 .build();
 
         log.info("saving client {} to db..", client);

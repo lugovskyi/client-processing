@@ -19,8 +19,8 @@ docker compose up
 ```
 
 <br><br>
-queues and exchanges creates automatically<br>
-db creates automatically but cleans after restart of client-data-service<br>
+queues and exchanges creating automatically<br>
+db creating automatically but cleans after restart of client-data-service<br>
 <br><br>
 
 test request
