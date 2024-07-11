@@ -1,0 +1,84 @@
+{
+  "info": {
+    "_postman_id": "cd3a3b7a-13e4-4c22-8445-d92d022acd38",
+    "name": "Test collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "19247702"
+  },
+  "item": [
+    {
+      "name": "New Request",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "x-request-sid",
+            "value": "0a6da901-9c35-4e62-9bd9-348ddb5f0c7d",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"id\":\"100503\",\r\n\"taxNumber\":\"7234567890\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8001/api/v1/client/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8001",
+          "path": [
+            "api",
+            "v1",
+            "client",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          "function generateUUID() {\r",
+          "    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {\r",
+          "        var r = Math.random() * 16 | 0,\r",
+          "            v = c == 'x' ? r : (r & 0x3 | 0x8);\r",
+          "        return v.toString(16);\r",
+          "    });\r",
+          "}\r",
+          "\r",
+          "var uniqueId = generateUUID();\r",
+          "pm.environment.set(\"sid\", uniqueId);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "sid",
+      "value": "0a6da901-9c35-4e62-9bd9-348ddb5f0c7d"
+    }
+  ]
+}

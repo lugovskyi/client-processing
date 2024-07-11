@@ -23,14 +23,6 @@ queues and exchanges creating automatically<br>
 db creating automatically but cleans after restart of client-data-service<br>
 <br><br>
 
-test request
+test postman collection<br><br>
 
-``` curl
-curl --location 'http://localhost:8001/api/v1/client/register' \
---header 'x-request-sid: 0a6da901-9c35-4e62-9bd9-348ddb5f0c7d' \
---header 'Content-Type: application/json' \
---data '{
-"id":"100503",
-"taxNumber":"7234567890"
-}'
-```
+Test collection.postman_collection.json
