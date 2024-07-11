@@ -1,11 +1,13 @@
 package clientprocessing.clientdataservice.service;
 
+import clientprocessing.clientdataservice.entity.Client;
 import clientprocessing.clientdataservice.model.InputClientMessage;
 import clientprocessing.clientdataservice.repository.ClientRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
 import org.springframework.stereotype.Service;
 
 @Slf4j
@@ -16,8 +18,22 @@ public class ProcessingService {
     private final ClientRepository repository;
 
     public void processMessage(String message) throws JsonProcessingException {
-        InputClientMessage inputClientMessage = objectMapper.readValue(message, InputClientMessage.class);
-        log.info("saving to db..");
 
+        InputClientMessage inputClientMessage = objectMapper.readValue(message, InputClientMessage.class);
+
+        MDC.put("sid", inputClientMessage.sid());
+        log.info("received message: {}", message);
+
+        Client client = Client.builder()
+                .taxNumber(inputClientMessage.clientDto().taxNumber())
+                .address(inputClientMessage.clientDto().address())
+                .passport(inputClientMessage.clientDto().passport())
+                .isFop(inputClientMessage.clientDto().isFop())
+                .isFraudAssigned(inputClientMessage.clientDto().isFraudAssigned())
+                .build();
+
+        log.info("saving client {} to db..", client);
+
+        repository.save(client);
     }
 }

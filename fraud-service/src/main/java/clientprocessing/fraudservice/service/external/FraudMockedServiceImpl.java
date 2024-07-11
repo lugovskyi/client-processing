@@ -13,14 +13,19 @@ public class FraudMockedServiceImpl implements FraudMockedService {
     public FraudInfo findClientInfo(String taxNumber) {
         log.info("fraud service call ...");
 
-        if (taxNumber.startsWith("1")) {
+        if (taxNumber.startsWith("0")) {
             return FraudInfo.builder()
                     .isFraudAssigned(true).build();
 
         } else if (taxNumber.startsWith("7")) {
             return FraudInfo.builder().isFraudAssigned(false).build();
 
-        } else
+        } else if (taxNumber.startsWith("3")) {
             throw new ExternalServiceCallException("Error during Diia api request..");
+
+        } else {
+            return FraudInfo.builder()
+                    .isFraudAssigned(true).build();
+        }
     }
 }

@@ -3,11 +3,15 @@ package clientprocessing.clientdataservice.entity;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
-@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-@Table(schema = "creator", name = "client")
+@Table(schema = "public", name = "client")
 public class Client {
     @Id
     Long id;

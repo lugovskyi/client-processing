@@ -55,3 +55,7 @@ services:
     build: ./client-data-service
     ports:
       - "8004:8080"
+  fraud-service:
+    build: ./fraud-service
+    ports:
+      - "8005:8080"

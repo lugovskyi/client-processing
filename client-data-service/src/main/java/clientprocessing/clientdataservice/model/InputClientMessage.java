@@ -5,5 +5,5 @@ import lombok.Builder;
 @Builder
 public record InputClientMessage(
         String sid,
-        Client client) {
+        ClientDto clientDto) {
 }

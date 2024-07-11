@@ -29,7 +29,6 @@ public class RabbitConsumer {
     @RabbitListener(queues = "${rabbitmq.listened.queue}", id = CONTAINER_ID)
     public void receiveMessage(String message, Channel channel, @Header(AmqpHeaders.DELIVERY_TAG) long tag) throws IOException {
         try {
-            log.info("received message: {}", message);
             processingService.processMessage(message);
             channel.basicAck(tag, false);
         } catch (Exception e) {

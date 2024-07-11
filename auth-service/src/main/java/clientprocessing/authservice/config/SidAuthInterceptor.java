@@ -10,6 +10,8 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
+import static java.util.Objects.isNull;
+
 @Component
 public class SidAuthInterceptor implements HandlerInterceptor {
 
@@ -24,6 +26,7 @@ public class SidAuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull Object handler) throws InvalidSidException {
         String sid = request.getHeader("x-request-sid");
+
         if (!isValidSid(sid)) {
             throw new InvalidSidException("Invalid or missing SID");
         }
@@ -34,6 +37,6 @@ public class SidAuthInterceptor implements HandlerInterceptor {
 
     private boolean isValidSid(String sid) {
         // Simple validation logic for demonstration
-        return authProperties.sid().equals(sid);
+        return !isNull(sid) && sid.length() == 36;
     }
 }
