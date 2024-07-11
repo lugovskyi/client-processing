@@ -1,8 +1,6 @@
 package clientprocessing.clientdataservice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -14,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(schema = "public", name = "client")
 public class Client {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String clientId;
     String taxNumber;

@@ -30,6 +30,7 @@ public class ProcessingService {
                 .passport(inputClientMessage.client().passport())
                 .isFop(inputClientMessage.client().isFop())
                 .isFraudAssigned(inputClientMessage.client().isFraudAssigned())
+                .clientId(inputClientMessage.sid())
                 .build();
 
         log.info("saving client {} to db..", client);

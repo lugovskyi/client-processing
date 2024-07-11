@@ -39,7 +39,7 @@ public class ProcessingService {
                         .passport(inputClientMessage.client().passport())
                         .address(inputClientMessage.client().address())
                         .isFop(inputClientMessage.client().isFop())
-                        .isFop(fraudInfo.isFraudAssigned()).build()).build();
+                        .isFraudAssigned(fraudInfo.isFraudAssigned()).build()).build();
 
         rabbitMqProvider.publishMessage(outputClientMessage);
     }
