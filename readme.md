@@ -1,11 +1,9 @@
-Test tusk includes<br><br>
+Test task includes<br><br>
 
-1. Create a microservice architecture for the following services:<br>
-   1.1. auth-service<br>
-   1.2. diia-service<br>
-   1.3. edr-service<br>
-   1.4. fraud-service<br>
-   1.5. client-data-service<br>
+5 Spring boot services <br>
+1st - REST api service, that sands data to rabbit queue. Have auth by simle session id, with simple validation just for example <br>
+2d, 3d, 4th - services that listen queue, fetch data from mocked external service and send it to another queue<br>
+5th - service that listen queue and save data from message to dB using jpa <br><br>
 
 Order<br>
 
