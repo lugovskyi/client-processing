@@ -3,7 +3,7 @@ Test task includes<br><br>
 5 Spring boot services <br>
 1st - REST api service, that sands data to rabbit queue. Have auth by simle session id, with simple validation just for example <br>
 2d, 3d, 4th - services that listen queue, fetch data from mocked external service and send it to another queue<br>
-5th - service that listen queue and save data from message to dB using jpa <br><br>
+5th - service that listen queue and save data from message to db using jpa <br><br>
 
 Order<br>
 
